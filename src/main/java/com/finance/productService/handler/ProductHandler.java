@@ -2,57 +2,55 @@ package com.finance.productService.handler;
 
 import com.finance.productService.document.Product;
 import com.finance.productService.service.ProductService;
-import com.mongodb.internal.connection.Server;
+import com.finance.productService.service.ProductServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Component;
+import org.springframework.web.reactive.function.server.ServerRequest;
 import org.springframework.web.reactive.function.server.ServerResponse;
 import reactor.core.publisher.Mono;
 
 @Slf4j
-@RestController
-@RequestMapping("/product")
+@Component
 public class ProductHandler {
 
     @Autowired
     private ProductService productService;
 
-    @GetMapping("/")
-    public Mono<ServerResponse> findAll() {
+    public Mono findAll(ServerRequest request) {
         log.info("Find all clients");
-        return ServerResponse
-                .ok()
-                .contentType(MediaType.APPLICATION_JSON)
+        return ServerResponse.ok()
                 .body(productService.findAll(), Product.class);
     }
 
-    @GetMapping("/{id}")
-    public Mono<ServerResponse> findById(@PathVariable("id") String id) {
+    public Mono findById(ServerRequest request) {
+        String id = request.pathVariable("id");
         log.info("Find by Id: {}", id);
-        return ServerResponse
-                .ok()
-                .contentType(MediaType.APPLICATION_JSON)
-                .body( productService.findById(id).subscribe(), Product.class);
+        return ServerResponse.ok()
+                .body(productService.findById(id), Product.class);
     }
 
-    @PostMapping("/save")
-    public void save(@RequestBody Product product) {
-        productService.save(product).subscribe();
+    public Mono save(ServerRequest request) {
+        Mono<Product> product = request.bodyToMono(Product.class);
+        log.info("Save product");
+        return product.flatMap(p -> ServerResponse
+                .status(HttpStatus.CREATED)
+                .body(productService.save(p), Product.class));
     }
 
-    @PutMapping("/update")
-    public Mono<ServerResponse> update(@RequestBody Product product){
+    public Mono update(ServerRequest request){
+        Mono<Product> product = request.bodyToMono(Product.class);
         log.info("update product {}", product);
-        return ServerResponse
-                .ok()
-                .contentType(MediaType.APPLICATION_JSON)
-                .body(productService.save(product), Product.class);
+        return product.flatMap(p -> ServerResponse
+                .status(HttpStatus.CREATED)
+                .body(productService.save(p), Product.class));
     }
 
-    @DeleteMapping("/delete/{}")
-    public void delete(String id){
+    public Mono delete(ServerRequest request){
+        String id = request.pathVariable("id");
         log.info("delete product");
+        return productService.deleteById(id).then(ServerResponse.noContent().build());
     }
 
 }

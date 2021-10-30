@@ -4,10 +4,10 @@ import com.finance.productService.document.Product;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-public interface IProductRepository {
+public interface ProductRepository {
     Flux<Product> findAll();
     Mono<Product> findById(String id);
     Mono<Product> save(Product product);
-    void deleteById(String id);
+    Mono<Void> deleteById(String id);
 
 }
