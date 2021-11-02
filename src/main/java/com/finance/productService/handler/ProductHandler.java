@@ -19,14 +19,14 @@ public class ProductHandler {
     private ProductService productService;
 
     public Mono findAll(ServerRequest request) {
-        log.info("Find all clients");
+        log.info("Find all products");
         return ServerResponse.ok()
                 .body(productService.findAll(), Product.class);
     }
 
     public Mono findById(ServerRequest request) {
         String id = request.pathVariable("id");
-        log.info("Find by Id: {}", id);
+        log.info("Find client by id: {}", id);
         return ServerResponse.ok()
                 .body(productService.findById(id), Product.class);
     }

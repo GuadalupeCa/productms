@@ -7,7 +7,6 @@ import org.springframework.http.MediaType;
 import org.springframework.web.reactive.function.server.RouterFunction;
 import org.springframework.web.reactive.function.server.RouterFunctions;
 import org.springframework.web.reactive.function.server.ServerResponse;
-import reactor.core.publisher.Mono;
 
 import static org.springframework.web.reactive.function.server.RequestPredicates.GET;
 import static org.springframework.web.reactive.function.server.RequestPredicates.POST;
@@ -16,10 +15,10 @@ import static org.springframework.web.reactive.function.server.RequestPredicates
 import static org.springframework.web.reactive.function.server.RequestPredicates.accept;
 
 @Configuration(proxyBeanMethods = false)
-public class Router {
+public class FunctionalRouter {
 
     @Bean
-    public RouterFunction route(ProductHandler productHandler) {
+    public RouterFunction<ServerResponse> route(ProductHandler productHandler) {
         return RouterFunctions
                 .route(GET("/product").and(accept(MediaType.APPLICATION_JSON)), productHandler::findAll)
                 .andRoute(GET("/product/{id}").and(accept(MediaType.APPLICATION_JSON)), productHandler::findById)
