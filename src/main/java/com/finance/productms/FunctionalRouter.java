@@ -1,6 +1,6 @@
-package com.finance.productService;
+package com.finance.productms;
 
-import com.finance.productService.handler.ProductHandler;
+import com.finance.productms.handler.ProductHandler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;

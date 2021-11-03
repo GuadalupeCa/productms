@@ -1,7 +1,7 @@
-package com.finance.productService.repository;
+package com.finance.productms.repository;
 
 
-import com.finance.productService.document.Product;
+import com.finance.productms.document.Product;
 import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
 
 public interface ProductRepositoryExt extends ReactiveMongoRepository<Product, String > {

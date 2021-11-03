@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.finance</groupId>
-    <artifactId>productService</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>productService</name>
+    <artifactId>productms</artifactId>
+    <version>0.0.1</version>
+    <name>productms</name>
     <description>Service for getting list of product</description>
     <properties>
         <java.version>11</java.version>

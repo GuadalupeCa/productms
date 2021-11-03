@@ -1,8 +1,7 @@
-package com.finance.productService.handler;
+package com.finance.productms.handler;
 
-import com.finance.productService.document.Product;
-import com.finance.productService.service.ProductService;
-import com.finance.productService.service.ProductServiceImpl;
+import com.finance.productms.document.Product;
+import com.finance.productms.service.ProductService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

@@ -1,8 +1,8 @@
-package com.finance.productService.repository.impl;
+package com.finance.productms.repository.impl;
 
-import com.finance.productService.document.Product;
-import com.finance.productService.repository.ProductRepository;
-import com.finance.productService.repository.ProductRepositoryExt;
+import com.finance.productms.document.Product;
+import com.finance.productms.repository.ProductRepository;
+import com.finance.productms.repository.ProductRepositoryExt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import reactor.core.publisher.Flux;

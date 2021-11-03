@@ -1,6 +1,6 @@
-package com.finance.productService.repository;
+package com.finance.productms.repository;
 
-import com.finance.productService.document.Product;
+import com.finance.productms.document.Product;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 

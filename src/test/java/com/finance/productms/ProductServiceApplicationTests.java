@@ -1,4 +1,4 @@
-package com.finance.productService;
+package com.finance.productms;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
