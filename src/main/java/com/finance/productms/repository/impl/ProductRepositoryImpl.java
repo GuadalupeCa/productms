@@ -32,4 +32,9 @@ public class ProductRepositoryImpl implements ProductRepository {
     public Mono<Void> deleteById(String id) {
         return productRepository.deleteById(id);
     }
+
+    @Override
+    public Mono<Product> findByName(String name) {
+        return productRepository.findByName(name);
+    }
 }

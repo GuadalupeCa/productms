@@ -13,4 +13,5 @@ public interface ProductService {
     public Mono<Product> save(Product product);
 
     public Mono<Void> deleteById(String id);
+    public Mono<Product> findByName(String name);
 }

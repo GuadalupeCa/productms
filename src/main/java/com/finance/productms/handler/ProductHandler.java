@@ -52,4 +52,10 @@ public class ProductHandler {
         return productService.deleteById(id).then(ServerResponse.noContent().build());
     }
 
+    public Mono findByName(ServerRequest request) {
+        String name = request.pathVariable("name");
+        log.info("Find client by name: {}", name);
+        return ServerResponse.ok()
+                .body(productService.findByName(name), Product.class);
+    }
 }

@@ -22,6 +22,7 @@ public class FunctionalRouter {
         return RouterFunctions
                 .route(GET("/product").and(accept(MediaType.APPLICATION_JSON)), productHandler::findAll)
                 .andRoute(GET("/product/{id}").and(accept(MediaType.APPLICATION_JSON)), productHandler::findById)
+                .andRoute(GET("/product/name/{name}").and(accept(MediaType.APPLICATION_JSON)), productHandler::findByName)
                 .andRoute(POST("/product/save").and(accept(MediaType.APPLICATION_JSON)), productHandler::save)
                 .andRoute(PUT("/product/update").and(accept(MediaType.APPLICATION_JSON)), productHandler::update)
                 .andRoute(DELETE("/product/delete/{id}").and(accept(MediaType.APPLICATION_JSON)), productHandler::delete);

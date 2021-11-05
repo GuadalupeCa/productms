@@ -29,4 +29,9 @@ public class ProductServiceImpl implements ProductService{
         return  productRepository.deleteById(id);
     }
 
+    @Override
+    public Mono<Product> findByName(String name) {
+        return productRepository.findByName(name);
+    }
+
 }
