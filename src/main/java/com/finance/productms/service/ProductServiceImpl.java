@@ -1,6 +1,6 @@
 package com.finance.productms.service;
 
-import com.finance.productms.document.Product;
+import com.finance.productms.domain.document.Product;
 import com.finance.productms.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

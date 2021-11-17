@@ -1,7 +1,7 @@
 package com.finance.productms.repository;
 
 
-import com.finance.productms.document.Product;
+import com.finance.productms.domain.document.Product;
 import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
 import reactor.core.publisher.Mono;
 

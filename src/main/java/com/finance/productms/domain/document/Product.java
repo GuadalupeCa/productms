@@ -1,4 +1,4 @@
-package com.finance.productms.document;
+package com.finance.productms.domain.document;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Getter;

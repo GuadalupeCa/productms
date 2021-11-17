@@ -1,6 +1,6 @@
 package com.finance.productms.repository.impl;
 
-import com.finance.productms.document.Product;
+import com.finance.productms.domain.document.Product;
 import com.finance.productms.repository.ProductRepository;
 import com.finance.productms.repository.ProductRepositoryExt;
 import org.springframework.beans.factory.annotation.Autowired;
